@@ -7,3 +7,8 @@
 .footer p {
     text-align: center;
 }
+
+.footer a,
+.footer a:active {
+    color: #fff;
+}

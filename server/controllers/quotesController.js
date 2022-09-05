@@ -4,7 +4,7 @@ const filterObject = require('../utils/filterObject');
 const AppError = require('../utils/AppError');
 
 exports.getAllQuotes = catchAsync(async (req, res, next) => {
-    const quotes = await Quote.find();
+    const quotes = await Quote.find().sort('-dateAdded');
 
     res.status(200).json({
         status: 'success',

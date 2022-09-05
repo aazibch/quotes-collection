@@ -26,6 +26,14 @@ const getValidationError = (err) => {
 };
 
 const sendError = (err, req, res) => {
+    console.log(
+        'err.message',
+        err.message,
+        'err.statusCode',
+        err.statusCode,
+        'err.status',
+        err.status
+    );
     if (err.isOperational) {
         return res.status(err.statusCode).json({
             status: err.status,
@@ -40,8 +48,8 @@ const sendError = (err, req, res) => {
 };
 
 module.exports = (err, req, res, next) => {
-    const { originalUrl } = req;
-    let errorObj;
+    let errorObj = { ...err };
+    errorObj.message = err.message;
 
     if (err.name === 'CastError') errorObj = getCastError(err);
     if (err.code === 11000) errorObj = getDublicateFieldError(err);

@@ -19,6 +19,10 @@ const quoteSchema = new mongoose.Schema({
     favorited: {
         type: Boolean,
         default: false
+    },
+    dateAdded: {
+        type: Date,
+        default: new Date().toISOString()
     }
 });
 

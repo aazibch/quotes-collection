@@ -8,6 +8,16 @@
     padding: 1rem;
 }
 
+.content {
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.author {
+    display: block;
+    font-style: italic;
+}
+
 .actions {
     padding: 0.5rem;
     border-top: 1px solid #c4c4c4;
@@ -16,4 +26,8 @@
 
 .actions button {
     float: right;
+}
+
+.favoriteIcon {
+    margin-right: 0.15rem;
 }
