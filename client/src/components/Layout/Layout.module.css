@@ -6,6 +6,7 @@
 
 .main {
     flex: 1;
+    width: 100%;
     max-width: 70rem;
     margin: 2rem auto;
     padding: 0 1rem;

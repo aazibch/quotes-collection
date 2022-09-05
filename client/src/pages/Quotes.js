@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import PuffLoader from 'react-spinners/PuffLoader';
 
 import QuotesGrid from '../components/Quotes/QuotesGrid/QuotesGrid';
+import LoadingSpinner from '../components/UI/LoadingSpinner/LoadingSpinner';
 
 function QuotesPage() {
     const [isLoading, setIsLoading] = useState(true);
@@ -29,7 +29,7 @@ function QuotesPage() {
         fetchQuotes();
     }, []);
 
-    if (isLoading) return <PuffLoader />;
+    if (isLoading) return <LoadingSpinner />;
 
     return <QuotesGrid quotes={quotes} />;
 }

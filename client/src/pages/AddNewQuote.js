@@ -1,5 +1,7 @@
+import NewQuoteForm from '../components/Quotes/NewQuoteForm/NewQuoteForm';
+
 function AddNewQuotePage() {
-    return <h1>Add New Quote Page</h1>;
+    return <NewQuoteForm />;
 }
 
 export default AddNewQuotePage;
