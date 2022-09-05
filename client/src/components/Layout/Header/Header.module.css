@@ -1,0 +1,11 @@
+.header {
+    display: flex;
+    align-items: center;
+    background-color: #77002e;
+    color: #fff;
+    padding: 1rem;
+}
+
+.logo {
+    margin-right: auto;
+}

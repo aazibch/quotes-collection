@@ -1,0 +1,36 @@
+.mainNavigation {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.mainNavigation li {
+    margin-right: 1.5rem;
+}
+
+.mainNavigation li:last-child {
+    margin-right: 0;
+}
+
+.mainNavigation a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.25rem;
+}
+
+.mainNavigation a:hover {
+    color: #c9c9c9;
+}
+
+.mainNavigation .active {
+    color: #c9c9c9;
+}
+
+.mainNavigation:hover .active {
+    color: #fff;
+}
+
+.mainNavigation:hover .active:hover {
+    color: #c9c9c9;
+}
