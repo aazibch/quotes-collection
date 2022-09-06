@@ -1,18 +1,40 @@
+import { useRef } from 'react';
 import Card from '../../UI/Card/Card';
 
 import classes from './NewQuoteForm.module.css';
 
-function NewQuoteForm() {
+function NewQuoteForm(props) {
+    const quoteInputRef = useRef();
+    const authorInputRef = useRef();
+
+    function submitHandler(e) {
+        e.preventDefault();
+
+        props.submitQuoteHandler({
+            content: quoteInputRef.current.value,
+            author: authorInputRef.current.value
+        });
+    }
+
     return (
-        <form className={classes.form}>
-            <Card className={classes.formContent}>
+        <form className={classes.form} onSubmit={submitHandler}>
+            <Card className={classes.formCard}>
                 <label htmlFor='quote'>Quote</label>
                 <textarea
                     id='quote'
                     placeholder='Time is an illusion. Lunchtime doubly so.'
+                    ref={quoteInputRef}
                 ></textarea>
                 <label htmlFor='author'>Author</label>
-                <input id='author' type='text' placeholder='Douglas Adams' />
+                <input
+                    id='author'
+                    type='text'
+                    placeholder='Douglas Adams'
+                    ref={authorInputRef}
+                />
+                <p className={classes.inputMessage}>
+                    Say "Anonymous" if the author is unknown.
+                </p>
                 <button className='button buttonLarge'>Submit</button>
             </Card>
         </form>

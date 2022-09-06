@@ -14,7 +14,6 @@ function QuotesPage() {
                 const response = await axios.get('/api/v1/quotes');
 
                 setQuotes(response.data.data);
-                console.log('response', response);
             } catch (error) {
                 alert(
                     error.response?.data.message
