@@ -1,36 +1,15 @@
-import { useState, useEffect } from 'react';
-import axios from 'axios';
+import { useContext } from 'react';
 
+import QuotesContext from '../store/quotes-context';
 import QuotesGrid from '../components/Quotes/QuotesGrid/QuotesGrid';
 import LoadingSpinner from '../components/UI/LoadingSpinner/LoadingSpinner';
 
 function QuotesPage() {
-    const [isLoading, setIsLoading] = useState(true);
-    const [quotes, setQuotes] = useState([]);
+    const quotesCtx = useContext(QuotesContext);
 
-    useEffect(() => {
-        async function fetchQuotes() {
-            try {
-                const response = await axios.get('/api/v1/quotes');
+    if (quotesCtx.isLoading) return <LoadingSpinner />;
 
-                setQuotes(response.data.data);
-            } catch (error) {
-                alert(
-                    error.response?.data.message
-                        ? error.response.data.message
-                        : error.message
-                );
-            }
-
-            setIsLoading(false);
-        }
-
-        fetchQuotes();
-    }, []);
-
-    if (isLoading) return <LoadingSpinner />;
-
-    return <QuotesGrid quotes={quotes} />;
+    return <QuotesGrid quotes={quotesCtx.quotes} />;
 }
 
 export default QuotesPage;

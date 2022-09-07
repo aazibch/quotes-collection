@@ -1,15 +1,16 @@
 import { useContext } from 'react';
 
-import FavoritesContext from '../store/favorites-context';
+import QuotesContext from '../store/quotes-context';
 import LoadingSpinner from '../components/UI/LoadingSpinner/LoadingSpinner';
 import QuotesGrid from '../components/Quotes/QuotesGrid/QuotesGrid';
 
 function FavoritesPage() {
-    const favoritesCtx = useContext(FavoritesContext);
+    const quotesCtx = useContext(QuotesContext);
+    const favoriteQuotes = quotesCtx.quotes.filter((quote) => quote.favorited);
 
-    if (favoritesCtx.favoritesLoading) return <LoadingSpinner />;
+    if (quotesCtx.isLoading) return <LoadingSpinner />;
 
-    return <QuotesGrid quotes={favoritesCtx.favorites} />;
+    return <QuotesGrid quotes={favoriteQuotes} />;
 }
 
 export default FavoritesPage;

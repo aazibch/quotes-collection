@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
-import { FavoritesContextProvider } from './store/favorites-context';
+import { QuotesContextProvider } from './store/quotes-context';
 
 import './index.css';
 import App from './App';
@@ -10,9 +10,9 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <React.StrictMode>
         <BrowserRouter>
-            <FavoritesContextProvider>
+            <QuotesContextProvider>
                 <App />
-            </FavoritesContextProvider>
+            </QuotesContextProvider>
         </BrowserRouter>
     </React.StrictMode>
 );
