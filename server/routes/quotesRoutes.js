@@ -15,4 +15,6 @@ router
     .post(quotesController.favoriteQuote)
     .delete(quotesController.unfavoriteQuote);
 
+router.route('/favorites').get(quotesController.getFavoriteQuotes);
+
 module.exports = router;

@@ -15,23 +15,6 @@ function QuotesGrid(props) {
                         author={quote.author}
                     />
                 ))}
-
-                {/* <Quote
-                    content='Look deep into nature, and then you will understand everything better. Look deep into nature, and then you will understand everything better. Look deep into nature, and then you will understand everything better. Look deep into nature, and then you will understand everything better. Look deep into nature, and then you will understand everything better.'
-                    author='Albert Einstein'
-                />
-                <Quote
-                    content='Look deep into nature, and then you will understand everything better.'
-                    author='Albert Einstein'
-                />
-                <Quote
-                    content='Look deep into nature, and then you will understand everything better.'
-                    author='Albert Einstein'
-                />
-                <Quote
-                    content='Look deep into nature, and then you will understand everything better.'
-                    author='Albert Einstein'
-                /> */}
             </Masonry>
         </div>
     );

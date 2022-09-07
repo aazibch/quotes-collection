@@ -18,6 +18,15 @@
     overflow: auto;
 }
 
-.actions button {
+.favoriteButton {
     float: right;
+    color: #383838;
+}
+
+.favoriteButton svg {
+    margin-right: 0.25rem;
+}
+
+.favoriteButtonSelected {
+    color: #f91880;
 }

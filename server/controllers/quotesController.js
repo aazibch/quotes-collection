@@ -57,6 +57,15 @@ exports.unfavoriteQuote = catchAsync(async (req, res, next) => {
     });
 });
 
+exports.getFavoriteQuotes = catchAsync(async (req, res, next) => {
+    const quotes = await Quote.find({ favorited: true });
+
+    res.status(200).json({
+        status: 'success',
+        data: quotes
+    });
+});
+
 exports.deleteQuote = catchAsync(async (req, res, next) => {
     const quote = await Quote.findByIdAndDelete(req.params.id);
 
