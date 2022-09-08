@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart } from '@fortawesome/free-solid-svg-icons';
+import { faHeart, faXmark } from '@fortawesome/free-solid-svg-icons';
 import Card from '../../UI/Card/Card';
 import QuotesContext from '../../../store/quotes-context';
 
@@ -22,17 +22,25 @@ function Quote(props) {
     let favoriteButtonText = 'Favorite';
 
     if (isFavorite) {
-        favoriteButtonClasses.push(classes.favoriteButtonSelected);
+        favoriteButtonClasses.push(classes.favoriteButton_selected);
         favoriteButtonText = 'Unfavorite';
     }
 
     return (
         <Card>
+            <div className={classes.header}>
+                <button
+                    onClick={() => quotesCtx.deleteQuote(props.id)}
+                    className={classes.deleteButton}
+                >
+                    <FontAwesomeIcon icon={faXmark} />
+                </button>
+            </div>
             <div className={classes.main}>
                 <span className={classes.content}>“{props.content}”</span>
                 <span className={classes.author}>— {props.author}</span>
             </div>
-            <div className={classes.actions}>
+            <div className={classes.footer}>
                 <button
                     className={favoriteButtonClasses.join(' ')}
                     onClick={favoriteButtonHandler}

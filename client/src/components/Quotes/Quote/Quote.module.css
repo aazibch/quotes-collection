@@ -2,6 +2,25 @@
     padding: 1rem;
 }
 
+.header {
+    border-bottom: 1px solid #c4c4c4;
+    padding: 0.5rem;
+    overflow: auto;
+}
+
+.deleteButton {
+    border: none;
+    border-radius: 50%;
+    background: none;
+    cursor: pointer;
+    float: right;
+    padding: 0.1rem 0.3rem;
+}
+
+.deleteButton:hover {
+    background-color: lightgray;
+}
+
 .content {
     display: block;
     margin-bottom: 1rem;
@@ -12,7 +31,7 @@
     font-style: italic;
 }
 
-.actions {
+.footer {
     padding: 0.5rem;
     border-top: 1px solid #c4c4c4;
     overflow: auto;
@@ -27,6 +46,6 @@
     margin-right: 0.25rem;
 }
 
-.favoriteButtonSelected {
+.favoriteButton_selected {
     color: #f91880;
 }

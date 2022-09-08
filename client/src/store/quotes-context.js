@@ -3,13 +3,14 @@ import { useNavigate } from 'react-router-dom';
 
 import axios from 'axios';
 
-// Method definitions added for better autocomplete in IDE.
+// Method definitions added for better autocompletion in IDE.
 const QuotesContext = createContext({
     quotes: [],
     isLoading: true,
     favoriteQuote: (id) => {},
     unfavoriteQuote: (id) => {},
     addNewQuote: (data) => {},
+    deleteQuote: (id) => {},
     isFavorite: (id) => {}
 });
 
@@ -76,6 +77,8 @@ export function QuotesContextProvider(props) {
     }
 
     async function addNewQuote(quoteData) {
+        setIsLoading(true);
+
         try {
             const response = await axios.post('/api/v1/quotes', quoteData);
 
@@ -84,6 +87,20 @@ export function QuotesContextProvider(props) {
             updatedQuotes.unshift(response.data.data);
             setQuotes(updatedQuotes);
             navigate('/');
+        } catch (error) {
+            showErrorAlert(error);
+        }
+
+        setIsLoading(false);
+    }
+
+    async function deleteQuote(quoteId) {
+        try {
+            await axios.delete(`/api/v1/quotes/${quoteId}`);
+
+            setQuotes((oldQuotes) =>
+                oldQuotes.filter((quote) => quote._id !== quoteId)
+            );
         } catch (error) {
             showErrorAlert(error);
         }
@@ -101,6 +118,7 @@ export function QuotesContextProvider(props) {
         favoriteQuote: favoriteQuote,
         unfavoriteQuote: unfavoriteQuote,
         addNewQuote: addNewQuote,
+        deleteQuote: deleteQuote,
         isFavorite: isFavorite
     };
 
