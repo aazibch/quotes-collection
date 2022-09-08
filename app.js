@@ -1,3 +1,4 @@
+const path = require('path');
 const morgan = require('morgan');
 const express = require('express');
 const app = express();
@@ -12,7 +13,14 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 if (process.env.NODE_ENV === 'production') {
-    app.use(express.static('client/build'));
+    app.use(express.static(path.join(__dirname, 'client/build')));
+    app.get(['/', '/favorites', '/new-quote'], (req, res) => {
+        res.sendFile(path.join(__dirname, 'client/build/index.html'));
+        console.log(
+            'res.sendFile',
+            path.join(__dirname, 'client/build/index.html')
+        );
+    });
 }
 
 app.use(express.json());

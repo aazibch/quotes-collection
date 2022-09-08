@@ -26,14 +26,6 @@ const getValidationError = (err) => {
 };
 
 const sendError = (err, req, res) => {
-    console.log(
-        'err.message',
-        err.message,
-        'err.statusCode',
-        err.statusCode,
-        'err.status',
-        err.status
-    );
     if (err.isOperational) {
         return res.status(err.statusCode).json({
             status: err.status,
