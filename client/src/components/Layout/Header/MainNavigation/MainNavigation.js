@@ -1,8 +1,15 @@
+import { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 
+import QuotesContext from '../../../../store/quotes-context';
 import classes from './MainNavigation.module.css';
 
 function MainNavigation() {
+    const quotesCtx = useContext(QuotesContext);
+    const favoritesCount = quotesCtx.quotes.filter(
+        (quote) => quote.favorited
+    ).length;
+
     return (
         <ul className={classes.mainNavigation}>
             <li>
@@ -33,6 +40,7 @@ function MainNavigation() {
                     to='/favorites'
                 >
                     Favorites
+                    <span className={classes.badge}>{favoritesCount}</span>
                 </NavLink>
             </li>
         </ul>

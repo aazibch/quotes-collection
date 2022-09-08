@@ -34,3 +34,10 @@
 .mainNavigation:hover .active:hover {
     color: #c9c9c9;
 }
+
+.badge {
+    display: inline-block;
+    margin-left: 0.5rem;
+    padding: 0 0.5rem;
+    border-bottom: 1px solid #d3d3d3;
+}
