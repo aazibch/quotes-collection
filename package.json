@@ -1,7 +1,7 @@
 {
-    "name": "quotes-collection-server",
+    "name": "quotes-collection",
     "version": "1.0.0",
-    "description": "The backend for QuotesCollection.",
+    "description": "A place to store and view your favorite quotes.",
     "main": "index.js",
     "scripts": {
         "start": "node index.js",
