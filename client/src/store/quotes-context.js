@@ -17,6 +17,7 @@ const QuotesContext = createContext({
 export function QuotesContextProvider(props) {
     const [quotes, setQuotes] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+    const [error, setError] = useState();
     const navigate = useNavigate();
 
     function showErrorAlert(error) {
@@ -54,7 +55,11 @@ export function QuotesContextProvider(props) {
 
             setQuotes(updatedQuotes);
         } catch (error) {
-            showErrorAlert(error);
+            setError(
+                error.response?.data.message
+                    ? error.response.data.message
+                    : error.message
+            );
         }
     }
 
@@ -72,7 +77,11 @@ export function QuotesContextProvider(props) {
 
             setQuotes(updatedQuotes);
         } catch (error) {
-            showErrorAlert(error);
+            setError(
+                error.response?.data.message
+                    ? error.response.data.message
+                    : error.message
+            );
         }
     }
 
@@ -88,7 +97,11 @@ export function QuotesContextProvider(props) {
             setQuotes(updatedQuotes);
             navigate('/');
         } catch (error) {
-            showErrorAlert(error);
+            setError(
+                error.response?.data.message
+                    ? error.response.data.message
+                    : error.message
+            );
         }
 
         setIsLoading(false);
@@ -102,8 +115,16 @@ export function QuotesContextProvider(props) {
                 oldQuotes.filter((quote) => quote._id !== quoteId)
             );
         } catch (error) {
-            showErrorAlert(error);
+            setError(
+                error.response?.data.message
+                    ? error.response.data.message
+                    : error.message
+            );
         }
+    }
+
+    function dismissErrorMessage() {
+        setError(null);
     }
 
     function isFavorite(quoteId) {
@@ -115,6 +136,8 @@ export function QuotesContextProvider(props) {
     const context = {
         quotes: quotes,
         isLoading: isLoading,
+        error: error,
+        dismissErrorMessage: dismissErrorMessage,
         favoriteQuote: favoriteQuote,
         unfavoriteQuote: unfavoriteQuote,
         addNewQuote: addNewQuote,

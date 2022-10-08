@@ -14,6 +14,8 @@ A live demo can be accessed at https://node-react-quotescollection.herokuapp.com
 
 To be able to access the quotes and related data throughout the app, I've used React's [Context API](https://reactjs.org/docs/context.html).
 
+To render the modal in a semantic manner, I've made use of React's [Portals](https://reactjs.org/docs/portals.html).
+
 ## Scripts
 
 Start the server:

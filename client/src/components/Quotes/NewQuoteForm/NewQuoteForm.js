@@ -1,5 +1,6 @@
 import { useRef } from 'react';
 import Card from '../../UI/Card/Card';
+import Button from '../../UI/Button/Button';
 
 import classes from './NewQuoteForm.module.css';
 
@@ -19,23 +20,23 @@ function NewQuoteForm(props) {
     return (
         <form className={classes.form} onSubmit={submitHandler}>
             <Card className={classes.formCard}>
-                <label htmlFor='quote'>Quote</label>
+                <label htmlFor="quote">Quote</label>
                 <textarea
-                    id='quote'
-                    placeholder='Time is an illusion. Lunchtime doubly so.'
+                    id="quote"
+                    placeholder="Time is an illusion. Lunchtime doubly so."
                     ref={quoteInputRef}
                 ></textarea>
-                <label htmlFor='author'>Author</label>
+                <label htmlFor="author">Author</label>
                 <input
-                    id='author'
-                    type='text'
-                    placeholder='Douglas Adams'
+                    id="author"
+                    type="text"
+                    placeholder="Douglas Adams"
                     ref={authorInputRef}
                 />
                 <p className={classes.inputMessage}>
                     Say "Anonymous" if the author is unknown.
                 </p>
-                <button className='button buttonLarge'>Submit</button>
+                <Button size="large">Submit</Button>
             </Card>
         </form>
     );

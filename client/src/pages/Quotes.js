@@ -11,7 +11,7 @@ function QuotesPage() {
     if (quotesCtx.isLoading) return <LoadingSpinner />;
 
     if (quotesCtx.quotes.length === 0)
-        return <AppMessage message='No quote found.' />;
+        return <AppMessage message="No quote found." />;
 
     return <QuotesGrid quotes={quotesCtx.quotes} />;
 }
