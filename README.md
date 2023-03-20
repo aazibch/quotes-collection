@@ -18,7 +18,11 @@ To render the modal in a semantic manner, I've made use of React's [Portals](htt
 
 ## Scripts
 
-Start the server:
+Run the server in development:
+
+    npm run start:dev
+
+Run the server in production mode:
 
     npm start
 
