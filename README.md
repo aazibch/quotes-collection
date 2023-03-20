@@ -2,13 +2,13 @@
 
 A place to store and view your favorite quotes.
 
--   You can add quotes to the collection.
--   You can favorite/unfavorite quotes.
--   You can delete quotes.
+- Users can add quotes to the collection.
+- Users can favorite/unfavorite quotes.
+- Users can delete quotes.
 
 ## Demo
 
-A live demo can be accessed at https://node-react-quotescollection.herokuapp.com/
+A live demo can be accessed at https://quotes-collection.up.railway.app/
 
 ## Details
 
