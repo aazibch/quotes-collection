@@ -8,7 +8,7 @@ A place to store and view your favorite quotes.
 
 ## Demo
 
-A live demo can be accessed at https://quotes-collection.up.railway.app/
+A live demo can be accessed at https://quotes-collection.onrender.com/.
 
 ## Details
 
